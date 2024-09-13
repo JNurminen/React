@@ -3,6 +3,7 @@ import './App.css'
 import Laskuri from './Laskuri'
 import Viesti from './Viesti'
 import Posts from './Posts'
+import CustomerList from './CustomerList'
 
 const App = () => {
 
@@ -17,6 +18,7 @@ const huomio =() => {
       <h1 style={{ color: 'orange', textDecoration: 'underline' }}>Hello Vite + React!</h1>
 
       <Posts />
+      <CustomerList />
 
       {showLaskuri && <Laskuri huomio={huomio} />}
       {showLaskuri && <button onClick={() => setShowLaskuri(!showLaskuri)}>Piilota laskuri</button>}
