@@ -40,3 +40,14 @@
 .read-the-docs {
   color: #888;
 }
+
+.posts {
+  background-color: gray;
+  margin:auto;
+  max-width: 70%;
+  border-radius: 20px;
+  border-width: 1px;
+  border-color: orange;
+  border-style: solid;
+  margin-bottom: 2%;
+}

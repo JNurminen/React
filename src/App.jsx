@@ -8,7 +8,6 @@ const App = () => {
 
 // komponentin tilan määrittely
 const [showLaskuri, setShowLaskuri] = useState(false)
-const [posts, setPosts] = useState(false)
 
 const huomio =() => {
   alert('Huomio!')
@@ -17,9 +16,7 @@ const huomio =() => {
     <div className="App">
       <h1 style={{ color: 'orange', textDecoration: 'underline' }}>Hello Vite + React!</h1>
 
-      {posts && <Posts />}
-      {posts && <button onClick={() => setPosts(!posts)}>Piilota postaukset</button>}
-      {!posts && <button onClick={() => setPosts(!posts)}>Näytä postaukset</button>}
+      <Posts />
 
       {showLaskuri && <Laskuri huomio={huomio} />}
       {showLaskuri && <button onClick={() => setShowLaskuri(!showLaskuri)}>Piilota laskuri</button>}
