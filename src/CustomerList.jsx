@@ -1,6 +1,7 @@
 import './App.css'
 import React, {useState, useEffect} from 'react'
 import CustomerService from './services/Customer'
+import Customer from './Customer'
  
 const CustomerList = () => {
 
@@ -21,7 +22,7 @@ useEffect(() => {
 
         {
             showCustomers && customers && customers.map(c => (
-                <h3 key={c.customerId}>{c.companyName}</h3>
+                <Customer key={c.customerId} customer={c} />
             )
         )
         }           
