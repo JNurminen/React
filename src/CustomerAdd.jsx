@@ -38,6 +38,7 @@ const handleSubmit = (event) => {
     .then(response => {
       if (response.status === 200) {
         alert("Added new customer: " + newCustomer.companyName)
+        setLisäystila(false)
       }
 
     })
@@ -45,9 +46,6 @@ const handleSubmit = (event) => {
       alert("Error")
     })
 
-    setTimeout(() => {
-      setLisäystila(false)
-    }, 500)
 }
 
 

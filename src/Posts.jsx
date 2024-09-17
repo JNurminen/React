@@ -16,16 +16,16 @@ useEffect(() => {
 
   return (
     <>
-        <h2 onClick={() => setShowPosts(!showPosts)} style={{ color: 'yellow', cursor: 'pointer' }}>Posts from typicode</h2>
+        <h2 onClick={() => setShowPosts(!showPosts)} style={{cursor: 'pointer' }}>Posts from typicode</h2>
 
         {
           showPosts && posts && posts.map(p =>
 
             <div className='posts' key={p.id}>
 
-            <h3 style={{ color: 'orange' }}><strong>{p.title}</strong></h3>
-            <h5 style={{ color: 'yellow' }}>User ID: {p.userId}</h5>
-            <p style={{ color: 'green' }}>{p.body}</p>
+            <h3><strong>{p.title}</strong></h3>
+            <h5>User ID: {p.userId}</h5>
+            <p>{p.body}</p>
 
             </div>
             )

@@ -15,7 +15,7 @@ useEffect(() => {
   CustomerService.getAll().then(data => {
     setCustomers(data)
 })
-},[]
+},[lisäystila]
 )
 
   return (

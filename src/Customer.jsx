@@ -15,6 +15,7 @@ const [showDetails, setShowDetails] = useState(false)
            {customer.companyName}</h4>
 
         {showDetails && <div className="customerDetail">
+            <h3>{customer.companyName}</h3>
                 <table>
                     <thead>
                         <tr>
