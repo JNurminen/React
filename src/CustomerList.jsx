@@ -4,7 +4,7 @@ import CustomerService from './services/Customer'
 import Customer from './Customer'
 import CustomerAdd from './CustomerAdd'
  
-const CustomerList = () => {
+const CustomerList = ({setIsPositive, setShowMessage, setMessage}) => {
 
 // komponentin tilan määrittely
 const [customers, setCustomers] = useState([])
@@ -25,7 +25,8 @@ useEffect(() => {
 
         {!lisäystila && <button className="nappi" onClick={() => setLisäystila(true)}>Add new</button>}</h2>
 
-        {lisäystila && <CustomerAdd setLisäystila={setLisäystila} />}
+        {lisäystila && <CustomerAdd setLisäystila={setLisäystila} 
+        setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage} />}
 
         {
             showCustomers && customers && customers.map(c => (

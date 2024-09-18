@@ -2,7 +2,7 @@ import './App.css'
 import React, {useState} from 'react'
 import CustomerService from './services/Customer'
  
-const CustomerAdd = ({setLisäystila}) => {
+const CustomerAdd = ({setLisäystila, setIsPositive, setMessage, setShowMessage}) => {
 
 // komponentin tilan määrittely
 const [newCustomerId, setNewCustomerId] = useState('')
@@ -37,15 +37,27 @@ const handleSubmit = (event) => {
   CustomerService.create(newCustomer)
     .then(response => {
       if (response.status === 200) {
-        alert("Added new customer: " + newCustomer.companyName)
+        setMessage("Added new customer: " + newCustomer.companyName)
+        setIsPositive(true)
+        setShowMessage(true)
+
+        setTimeout(() => {
+          setShowMessage(false)
+         }, 5000)
+
         setLisäystila(false)
       }
 
     })
     .catch(error => {
-      alert("Error")
-    })
+      setMessage(error)
+      setIsPositive(false)
+      setShowMessage(true)
 
+      setTimeout(() => {
+        setShowMessage(false)
+       }, 6000)
+    })
 }
 
 
