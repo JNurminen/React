@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import CustomerService from './services/Customer'
  
 // props on nimeltään customer-olio
-const Customer = ({customer, setIsPositive, setMessage, setShowMessage, reload, reloadNow}) => {
+const Customer = ({customer, editCustomer, setIsPositive, setMessage, setShowMessage, reload, reloadNow}) => {
 
 // komponentin tilan määrittely
 const [showDetails, setShowDetails] = useState(false)
@@ -60,7 +60,7 @@ const deleteCustomer = (customer) => {
         {showDetails && <div className="customerDetail">
             <h3>{customer.companyName}</h3>
             <button onClick={() => deleteCustomer(customer)}>Delete</button>
-            <button>Edit</button> 
+            <button onClick={() => editCustomer(customer)} >Edit</button> 
                 <table>
                     <thead>
                         <tr>
