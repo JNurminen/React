@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import './App.css'
 import Laskuri from './Laskuri'
 import Viesti from './Viesti'
-import Posts from './Posts'
 import CustomerList from './CustomerList'
 import Message from './Message'
 
@@ -25,8 +24,9 @@ const huomio =() => {
 
       {showMessage && <Message message={message} isPositive={isPositive} />}
 
-      <Posts />
       <CustomerList setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage} />
+      <br />
+      <br />
 
       {showLaskuri && <Laskuri huomio={huomio} />}
       {showLaskuri && <button onClick={() => setShowLaskuri(!showLaskuri)}>Piilota laskuri</button>}
