@@ -54,11 +54,12 @@
 .customerDetail {
   background-color: chocolate;
   border-style: solid;
-  width: 90%;
+  width: 50%;
   margin: auto;
   margin-bottom: 50px;
   border-radius: 30px;
-  padding: 20px;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .nappi {
@@ -97,5 +98,28 @@
   margin-top: 10%;
   width: 70%;
   margin-left: 15%;
+}
+
+.navbar {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 20px;
+  margin-bottom: 50px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.navbar a:hover {
+  color: orange;
+}
+
+#userTable {
+  margin: auto;
 }
 

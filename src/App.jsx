@@ -1,9 +1,14 @@
 import React, {useState} from 'react'
 import './App.css'
 import Laskuri from './Laskuri'
-import Viesti from './Viesti'
 import CustomerList from './CustomerList'
+import UserList from './UserList'
 import Message from './Message'
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 const App = () => {
 
@@ -15,24 +20,40 @@ const [showMessage, setShowMessage] = useState(false)
 const [message, setMessage] = useState('')
 const [isPositive, setIsPositive] = useState(false)
 
-const huomio =() => {
-  alert('Huomio!')
-}
+
   return (
     <div className="App">
-      <h1 style={{ color: 'orange', textDecoration: 'underline' }}>Hello Vite + React!</h1>
+      <Router>
+      <Navbar bg="dark" variant="dark">
+        <Nav className="mr-auto">
+                <Nav.Link href='/Customers'>Customers</Nav.Link>
+                <Nav.Link href='/Users'>Users</Nav.Link>
+                <Nav.Link href='/laskuri'>Laskuri</Nav.Link>
+        </Nav>
+      </Navbar>
+
+      <h1>Northwind Corporation</h1>
+      <br></br>
 
       {showMessage && <Message message={message} isPositive={isPositive} />}
 
-      <CustomerList setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage} />
-      <br />
-      <br />
+      <Routes>
+          <Route path="/Customers"
+          element={<CustomerList setMessage={setMessage} setIsPositive={setIsPositive} 
+          setShowMessage={setShowMessage} />}>
+          </Route>
 
-      {showLaskuri && <Laskuri huomio={huomio} />}
-      {showLaskuri && <button onClick={() => setShowLaskuri(!showLaskuri)}>Piilota laskuri</button>}
-      {!showLaskuri && <button onClick={() => setShowLaskuri(!showLaskuri)}>Näytä laskuri</button>}
-
-      <Viesti teksti="Tervehdys app komponentistä" />
+          <Route path="/Users"
+          element={<UserList setMessage={setMessage} setIsPositive={setIsPositive} 
+          setShowMessage={setShowMessage} />}>
+          </Route>
+          
+          <Route path="/laskuri" 
+          element={<Laskuri />}>
+        </Route>
+        
+        </Routes>
+      </Router>
     </div>
   )
 }
