@@ -41,16 +41,6 @@
   color: white;
 }
 
-.posts {
-  background-color: chocolate;
-  margin:auto;
-  width: 70%;
-  border-radius: 20px;
-  border-width: 1px;
-  border-style: solid;
-  margin-bottom: 50px;
-}
-
 .customerDetail {
   background-color: chocolate;
   border-style: solid;
@@ -120,6 +110,31 @@
 }
 
 #userTable {
+  width: 70%;
   margin: auto;
+  margin-top: 20px;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+}
+
+#userTable th {
+  background-color: chocolate;
+  color: white;
+  font-size: 20px;
+  padding: 5px;
+}
+
+#userTable td {
+  font-size: 18px;
+  padding: 10px;
+}
+
+form {
+  width: 50%;
+  margin: auto;
+  margin-top: 20px;
+  font-size: 20px;
 }
 
