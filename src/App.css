@@ -52,6 +52,17 @@
   padding-right: 5%;
 }
 
+.productDetail {
+  background-color: chocolate;
+  border-style: solid;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 50px;
+  border-radius: 30px;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
 .nappi {
   border-radius: 10px;
   margin-left: 10px;

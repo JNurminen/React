@@ -1,15 +1,17 @@
 import React, {useState, useEffect} from 'react'
 import './App.css'
 import Laskuri from './Laskuri'
-import CustomerList from './CustomerList'
-import UserList from './UserList'
 import Message from './Message'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Login from './Login'
+import CustomerList from './CustomerList'
+import ProductList from './ProductList'
+import UserList from './UserList'
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+
 
 
 const App = () => {
@@ -45,6 +47,7 @@ const logout = () => {
           <Navbar bg="dark" variant="dark">
             <Nav className="mr-auto">
               <Nav.Link href='/Customers'>Customers</Nav.Link>
+              <Nav.Link href='/Products'>Products</Nav.Link>
               <Nav.Link href='/Users'>Users</Nav.Link>
               <Nav.Link href='/laskuri'>Laskuri</Nav.Link>
               <button onClick={() => logout()}>Logout</button>
@@ -59,6 +62,11 @@ const logout = () => {
           <Routes>
             <Route path="/Customers"
               element={<CustomerList setMessage={setMessage} setIsPositive={setIsPositive} 
+              setShowMessage={setShowMessage} />}>
+            </Route>
+
+            <Route path="/Products"
+              element={<ProductList setMessage={setMessage} setIsPositive={setIsPositive} 
               setShowMessage={setShowMessage} />}>
             </Route>
 
