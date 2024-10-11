@@ -59,8 +59,19 @@
   margin: auto;
   margin-bottom: 50px;
   border-radius: 30px;
-  padding-left: 5%;
+  padding-left: 10%;
   padding-right: 5%;
+}
+
+.userDetail {
+  background-color: chocolate;
+  border-style: solid;
+  width: 60%;
+  margin: auto;
+  margin-bottom: 50px;
+  border-radius: 30px;
+  padding-left: 15%;
+  padding-right: 15%;
 }
 
 .nappi {
@@ -147,5 +158,11 @@ form {
   margin: auto;
   margin-top: 20px;
   font-size: 20px;
+}
+
+table {
+  width: 70%;
+  margin: auto;
+  margin-bottom: 20px;
 }
 

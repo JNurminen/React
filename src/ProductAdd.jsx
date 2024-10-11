@@ -14,23 +14,23 @@ const [newUnitPrice, setNewUnitPrice] = useState('')
 const [newUnitsInStock, setNewUnitsInStock] = useState('')
 const [newUnitsOnOrder, setNewUnitsOnOrder] = useState('')
 const [newReorderLevel, setNewReorderLevel] = useState('')
-const [newDiscontinued, setNewDiscontinued] = useState('')
+
 
 // onSubmit-tapahtumankäsittelijä funktio
 
 const handleSubmit = (event) => {
     event.preventDefault()
     var newProduct = {
-        productId: newProductId.toUpperCase(),
+        //productId: newProductId.toUpperCase(),
         productName: newProductName,
-        supplierId: newSupplierId,
-        categoryId: newCategoryId,
+        supplierId: parseInt(newSupplierId),
+        categoryId: parseInt(newCategoryId),
         quantityPerUnit: newQuantityPerUnit,
-        unitPrice: newUnitPrice,
-        unitsInStock: newUnitsInStock,
-        unitsOnOrder: newUnitsOnOrder,
-        reorderLevel: newReorderLevel,
-        discontinued: newDiscontinued
+        unitPrice: parseInt(newUnitPrice),
+        unitsInStock: parseInt(newUnitsInStock),
+        unitsOnOrder: parseInt(newUnitsOnOrder),
+        reorderLevel: parseInt(newReorderLevel),
+        discontinued: false
     }
 
     /*const token = localStorage.getItem('token')
@@ -53,7 +53,7 @@ const handleSubmit = (event) => {
     
         })
         .catch(error => {
-        setMessage(error)
+        setMessage(error.message)
         setIsPositive(false)
         setShowMessage(true)
     
@@ -98,10 +98,6 @@ const handleSubmit = (event) => {
             <div>
                 <input type="text" value={newReorderLevel} placeholder="Reorder level"
                     onChange={({ target }) => setNewReorderLevel(target.value)} />
-            </div>
-            <div>
-                <input type="text" value={newDiscontinued} placeholder="Discontinued"
-                    onChange={({ target }) => setNewDiscontinued(target.value)} />
             </div>
             <div>
                 <button type="submit">Add</button>

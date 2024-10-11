@@ -6,8 +6,8 @@ const UserEdit = ({setMuokkaustila, setIsPositive, setMessage, setShowMessage, m
 
 // komponentin tilan määrittely
 const [newUserId, setNewUserId] = useState(muokattavaUser.userId)
-const [newFirstName, setNewFirstName] = useState(muokattavaUser.firstName)
-const [newLastName, setNewLastName] = useState(muokattavaUser.lastName)
+const [newFirstName, setNewFirstName] = useState(muokattavaUser.firstname)
+const [newLastName, setNewLastName] = useState(muokattavaUser.lastname)
 const [newEmail, setNewEmail] = useState(muokattavaUser.email)
 const [newAccesslevelId, setNewAccesslevelId] = useState(muokattavaUser.accesslevelId)
 
@@ -16,8 +16,8 @@ const handleSubmit = (event) => {
     event.preventDefault()
     var newUser = {
         userId: newUserId,
-        firstName: newFirstName,
-        lastName: newLastName,
+        firstname: newFirstName,
+        lastname: newLastName,
         email: newEmail,
         accesslevelId: newAccesslevelId
     }
@@ -25,7 +25,7 @@ const handleSubmit = (event) => {
     UserService.update(newUser)
         .then(response => {
         if (response.status === 200) {
-            setMessage("Edited User: " + newUser.firstName)
+            setMessage("Edited User: " + newUser.firstname)
             setIsPositive(true)
             setShowMessage(true)
             window.scrollBy(0, -10000) // scrollataan ylös jotta nähdään viesti
@@ -39,7 +39,7 @@ const handleSubmit = (event) => {
 
         })
         .catch(error => {
-        setMessage(error)
+        setMessage(error.message)
         setIsPositive(false)
         setShowMessage(true)
 

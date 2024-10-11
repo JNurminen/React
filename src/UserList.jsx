@@ -19,6 +19,10 @@ const [search, setSearch] = useState("")
 
 // useEffect-hook, joka ajetaan aina kun komponentti renderöidään
 useEffect(() => {
+
+  const token = localStorage.getItem("token")
+  UserService.setToken(token)
+
   UserService.getAll().then(data => {
     setUsers(data)
 })
@@ -31,7 +35,7 @@ const handleSearchInputChange = (event) => {
   setSearch(event.target.value.toLowerCase())
 }
 
-const editUsers = (user) => {
+const editUser = (user) => {
   setMuokattavaUser(user)
   setMuokkaustila(true)
 }
@@ -41,16 +45,13 @@ return (
         <h2><nobr style={{ cursor: 'pointer'}}
         onClick={() => setShowUsers(!showUsers)}>Users</nobr>
 
-        {lisäystila && <UserAdd setLisäystila={setLisäystila} 
-        setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage} />}
 
         {!lisäystila && <button className="nappi" onClick={() => setLisäystila(true)}>Add new</button>}</h2>
 
         {!lisäystila && !muokkaustila &&
-        <input placeholder="Search by Last Name" value={search} onChange={handleSearchInputChange} />
-        }
-
-        {lisäystila && <UserAdd setLisäystila={setLisäystila}
+        <input placeholder="Search by Last Name" value={search} onChange={handleSearchInputChange} />}
+       
+        {lisäystila && <UserAdd setLisäystila={setLisäystila} 
         setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage} />}
                     
         {muokkaustila && <UserEdit setMuokkaustila={setMuokkaustila}
@@ -59,12 +60,12 @@ return (
 
 
         {
-        !lisäystila && !muokkaustila && showUsers && users && users.map(u =>
+          !lisäystila && !muokkaustila && showUsers && users && users.map(u =>
             {
-                const lowerCaseName = u.lastName.toLowerCase()
+                const lowerCaseName = u.lastname.toLowerCase()
                 if (lowerCaseName.indexOf(search) > -1) {
                     return(
-                        <User key={u.userId} user={u} editUser={editUsers} setIsPositive={setIsPositive}
+                        <User key={u.userId} user={u} editUser={editUser} setIsPositive={setIsPositive}
                          setMessage={setMessage} setShowMessage={setShowMessage} reload={reload}
                           reloadNow={reloadNow}/>
                     )

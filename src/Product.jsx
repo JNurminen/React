@@ -27,7 +27,7 @@ const deleteProduct = (product) => {
         }
     })
     .catch(error => {
-        setMessage(error)
+        setMessage(error.message)
         setIsPositive(false)
         setShowMessage(true)
         window.scrollBy(0, -10000)    // scrollataan ylös jotta nähdään viesti

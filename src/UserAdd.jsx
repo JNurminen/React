@@ -63,6 +63,10 @@ const handleSubmit = (event) => {
 
        <form onSubmit={handleSubmit}>
             <div>
+                <input type="text" value={newUsername} placeholder="Username"
+                    onChange={({ target }) => setNewUsername(target.value)} required />
+            </div>
+            <div>
                 <input type="text" value={newFirstname} placeholder="First name"
                     onChange={({ target }) => setNewFirstname(target.value)} required />
             </div>
@@ -78,15 +82,6 @@ const handleSubmit = (event) => {
                 <input type="number" value={newAccesslevelId} placeholder="Access level"
                     onChange={({ target }) => setNewAccesslevelId(target.value)} />
             </div>
-            <div>
-                <input type="text" value={newUsername} placeholder="Username"
-                    onChange={({ target }) => setNewUsername(target.value)} />
-            </div>
-            <div>
-                <input type="password" value={newPassword} placeholder="Password"
-                    onChange={({ target }) => setNewPassword(target.value)} />
-            </div>
-            
          <input type='submit' value='save' />
          <input type='button' value='back' onClick={() => setLisäystila(false)} />
        </form>

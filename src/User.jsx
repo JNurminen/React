@@ -9,13 +9,12 @@ const User = ({user, editUser, setIsPositive, setMessage, setShowMessage, reload
 const [showDetails, setShowDetails] = useState(false)
 
 const deleteUser = (user) => {
-    let vastaus = window.confirm(`Remove User: ${user.userName}?`)
+    let vastaus = window.confirm(`Remove User: ${user.firstname} ${user.lastname}?`)
     if (vastaus === true) {    
 
     UserService.remove(user.userId)
-    .then(res => {
-        if (res.status === 200) {
-        setMessage(`Successfully removed user: ${user.userName}`)
+    .then(res => {        
+        setMessage(`Successfully removed user: ${user.firstname} ${user.lastname}`)
         setIsPositive(true)
         setShowMessage(true)
         window.scrollBy(0, -10000)    // scrollataan ylös jotta nähdään viesti
@@ -25,9 +24,9 @@ const deleteUser = (user) => {
             5000)
         reloadNow(!reload)    // pakotetaan UserList komponentti päivittämään käyttäjälista            
         }
-    })
+    )
     .catch(error => {
-        setMessage(error)
+        setMessage(error.message)
         setIsPositive(false)
         setShowMessage(true)
         window.scrollBy(0, -10000)    // scrollataan ylös jotta nähdään viesti
@@ -54,11 +53,11 @@ const deleteUser = (user) => {
 
         <h4 style={{cursor: 'pointer'}} onClick={() => setShowDetails(!showDetails)}>
 
-           {user.userName} 
+           {user.firstname} {user.lastname}
         </h4>
 
         {showDetails && <div className="userDetail">
-            <h3>{user.userName}</h3>
+            <h3>{user.username}</h3>
             <button onClick={() => deleteUser(user)}>Delete</button>
             <button onClick={() => editUser(user)} >Edit</button>
 
@@ -75,8 +74,8 @@ const deleteUser = (user) => {
                     <tbody>
                         <tr>
                             <td>{user.userId}</td>
-                            <td>{user.firstName}</td>
-                            <td>{user.lastName}</td>
+                            <td>{user.firstname}</td>
+                            <td>{user.lastname}</td>
                             <td>{user.email}</td>
                             <td>{user.accesslevelId}</td>
                         </tr>
